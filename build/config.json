@@ -1,0 +1,21 @@
+{
+    "game": {
+        "field_size": 4
+    },
+
+    "window": {
+        "title": "X-O",
+        "width": 600,
+        "height": 700,
+        "color": {
+            "background": 4294967295,
+            "cell": 1722476799,
+            "cell_hover": 7782143
+        },
+        "font_files": {
+            "cell_state": "BebasNeue-Regular.ttf"
+        },
+        "field_width": 400,
+        "cell_part": 0.9
+    }
+}
