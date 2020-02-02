@@ -8,20 +8,9 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
 
-#define WINDOW_TITLE          "X-O"
-#define WINDOW_WIDTH          600
-#define WINDOW_HEIGHT         700
-#define BACKGROUND_COLOR      0xFFFFFFFF
-
-#define CELL_SIZE             120
-#define CELL_CLEARANCE        10
-#define CELL_COLOR            0x66AAE8FF
-#define CELL_SELECTED_COLOR   0x0076beff
-#define CELL_FONT_SIZE        72
-
 namespace view {
 
-class WindowView : public Observer {
+class WindowView : public sf::Thread, public Observer {
     public:
         WindowView(model::GameModel *m, controller::GameController *c);
         ~WindowView();
@@ -32,17 +21,19 @@ class WindowView : public Observer {
         void window_callback();
 
     private:
-        model::GameModel *model;
+        model::GameModel           *model;
         controller::GameController *controller;
-        sf::Thread m_thread;
-        bool closed = false;
         
-        sf::RenderWindow window;
-        sf::Font font;
-        sf::RectangleShape cell;
-        sf::Text cell_text;
+        sf::RenderWindow           window;
+        sf::Font                   state_font;
+        sf::RectangleShape         cell;
+        sf::Text                   cell_text;
 
-        int mouse_x = 0, mouse_y = 0;
+        int    mouse_x = 0,        mouse_y = 0;
+
+        int    cell_size = 0,      cell_clearance = 0; 
+        int    state_font_size = 0;
+        int    field_x0 = 0,       field_y0 = 0;
 
 
 }; // class WindowView

@@ -53,6 +53,8 @@
         "cinttypes": "cpp",
         "typeinfo": "cpp",
         "bit": "cpp",
-        "netfwd": "cpp"
+        "netfwd": "cpp",
+        "forward_list": "cpp",
+        "valarray": "cpp"
     }
 }
