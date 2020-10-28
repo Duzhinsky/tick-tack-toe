@@ -8,6 +8,8 @@
 
 #include <cstdint>
 
+#include <iostream>
+
 namespace model {
 
 enum State {

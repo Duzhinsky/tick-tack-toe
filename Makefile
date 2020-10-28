@@ -1,29 +1,30 @@
 
-CC = g++
-L_SFML =  -lsfml-graphics -lsfml-window -lsfml-system
-CFLAGS = -std=c++14 -Wall  ${L_SFML} -g
-TARGET = xo
+CC = g++-10
+L_SFML =  -lsfml-graphics -lsfml-window -lsfml-system 
+INCLUDE_PATH = ./include
+CFLAGS = -std=c++20 -Wall -Wextra -I${INCLUDE_PATH}
+TARGET = tick-tack-toe
 
 all: model view controller observer main link
 
 link: 
-	${CC} ofiles/main.o ofiles/model.o ofiles/view.o ofiles/controller.o ofiles/observer.o  -o ${TARGET} ${L_SFML} 
+	${CC} build/tmp/main.o build/tmp/model.o build/tmp/view.o build/tmp/controller.o build/tmp/observer.o  -o ${TARGET} ${CFLAGS} ${L_SFML}
 	mv ${TARGET} ./build/${TARGET}
 
 main: 
-	${CC} ${CFLAGS} -c -g  main.cpp -o ofiles/main.o 
+	${CC} ${CFLAGS} -c -g  src/main.cpp -o build/tmp/main.o 
 
 model:
-	${CC} ${CFLAGS} -c -g  model.cpp -o ofiles/model.o 
+	${CC} ${CFLAGS} -c -g  src/model.cpp -o build/tmp/model.o 
 
 view:
-	${CC} ${CFLAGS} -c -g  view.cpp -o ofiles/view.o 
+	${CC} ${CFLAGS} -c -g  src/view.cpp -o build/tmp/view.o 
 
 controller:
-	${CC} ${CFLAGS} -c -g  controller.cpp -o ofiles/controller.o 
+	${CC} ${CFLAGS} -c -g  src/controller.cpp -o build/tmp/controller.o 
 
 observer:
-	${CC} ${CFLAGS} -c -g  observer.cpp -o ofiles/observer.o 
+	${CC} ${CFLAGS} -c -g  src/observer.cpp -o build/tmp/observer.o 
 
 run:
 	./build/${TARGET}
