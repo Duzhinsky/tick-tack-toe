@@ -13,7 +13,7 @@ GameModel::GameModel() {
 }
 
 GameModel::ConfigBasic::ConfigBasic() {
-    std::ifstream i(".config");
+    std::ifstream i(".config.json");
     i >> *this;
 }
 
